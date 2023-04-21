@@ -5,6 +5,7 @@ public class App {
 
     static Scanner teclado = new Scanner(System.in);
     static ContaBancaria conta;
+    static Pessoa cons;
 
     static Banco banco = new Banco("TADSBank");
 
@@ -15,6 +16,8 @@ public class App {
         str += "2 - Sacar\n";
         str += "3 - Depositar\n";
         str += "4 - Ver dados\n";
+        str += "5 - Cadastrar pessoa\n";
+        str += "6 - Buscar pessoa\n";
         str += "0 - Sair\n";
         str += "Digite uma opção:";
 
@@ -24,28 +27,47 @@ public class App {
 
     static void criarConta(){
         
-        String nomeCliente;
+        Pessoa cliente;
         String numero;
         String agencia;
         double saldoInicial;
         
         System.out.println("Digite o nome do cliente:");
-        nomeCliente = teclado.nextLine();
+        cliente = teclado.nextLine();//n sabemos como scannear uma variavel do tipo pessoa
         System.out.println("Digite o número da conta:");
         numero = teclado.nextLine();
         System.out.println("Digite a agência da conta:");
         agencia = teclado.nextLine();
 
 
-        conta = new ContaBancaria(agencia,numero,nomeCliente);
+        conta = new ContaBancaria(agencia,numero,cliente);
 
         System.out.println("************");
         
         //adicionando um conta na coleção de contas
         banco.criarConta(conta);
 
-
     }
+    static void criarPessoa(){
+
+        String nome;
+        String cpf;
+        int idade;
+        double salario;
+        
+        System.out.println("Digite o nome:");
+        nome = teclado.nextLine();
+        System.out.println("Digite o cpf:");
+        cpf = teclado.nextLine();
+        System.out.println("Digite a idade:");
+        idade = teclado.nextInt();
+        System.out.println("Digite o salario:");
+        salario = teclado.nextDouble();
+
+        cons = new Pessoa(nome, cpf, idade, salario);
+    }
+
+
 
     static void sacar(){
         double valor;
@@ -95,11 +117,21 @@ public class App {
         System.out.println(banco.relatorio());
     }
 
+    static void buscarPessoa(){
+        String verificacpf;
+
+        System.out.println("Informe o CPF do cliente que deseja buscar: ");
+        verificacpf = teclado.nextLine();
+
+        banco.buscarPessoa(verificacpf);
+
+        String retorno = banco.buscarPessoa(verificacpf);
+        System.out.println(retorno);
+        System.out.println("************");
+
+    }
+
     public static void main(String[] args) {
-
-
-
-
 
 
         int opcao=0;
@@ -115,13 +147,18 @@ public class App {
                 break;
                 case 2:
                     sacar();
-                    
                 break;
                 case 3:
                     depositar();
                 break;
                 case 4:
                     mostrarDados();
+                break;
+                case 5:
+                    criarPessoa();
+                break;
+                case 6:
+                    buscarPessoa();
                 break;
                 default:
                     if(opcao != 0){

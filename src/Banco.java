@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Banco {
     
     private ArrayList<ContaBancaria> contas;
+    private ArrayList<Pessoa> pessoas;
 
     private String nome;
 
@@ -10,10 +11,15 @@ public class Banco {
     public Banco(String nome){
         this.nome = nome;
         this.contas = new ArrayList<>();
+        this.pessoas = new ArrayList<>();
     }
 
     public void criarConta(ContaBancaria conta){
         contas.add(conta);
+    }
+
+    public void CriarPessoa(Pessoa cons){
+        pessoas.add(cons);
     }
 
     public String sacar(String numero, String agencia, double valor){
@@ -40,7 +46,7 @@ public class Banco {
             }
         }
 
-        return "Conta não encontrada!!";
+        return "Conta não encontrada!";
 
     }
 
@@ -55,6 +61,25 @@ public class Banco {
 
     }
 
+    public String buscarPessoa(String verificacpf){
+        
+        for(Pessoa aux:pessoas){
+            if(aux.getCpf() == verificacpf){
+                return "joia";
+                //return aux.buscarPessoa(verificacpf);
+                
+                /*String texto1="";
+                
+                texto1 = "Nome" + nome ;
 
+                return texto1;
+                */
+            }
+        }  
+      //5  System.out.println("erroooou");
+
+        return "Cliente não encontrado!!";
+      
+    }
 
 }

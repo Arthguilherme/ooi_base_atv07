@@ -92,9 +92,10 @@ public class ContaBancaria{
         texto = "Agência: " + agencia +
                 " Número: " + numero +
                 " Saldo: " + saldo +
-                " Cliente: " + cliente.nome;
+                " Cliente: " + "fula";
 
         return texto;
     }
+
 
 }
