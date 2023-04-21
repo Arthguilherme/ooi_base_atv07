@@ -52,7 +52,7 @@ public class ContaBancaria{
 
     public Pessoa getCliente(){
         return cliente;
-    }
+    } 
  
     public double getSaldo(){
         return saldo;
