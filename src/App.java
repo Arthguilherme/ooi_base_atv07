@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
-
+//lucas rocha e guilherme arthur 
     static Scanner teclado = new Scanner(System.in);
     static ContaBancaria conta;
     static Pessoa cons;
