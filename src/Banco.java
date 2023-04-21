@@ -56,7 +56,7 @@ public class Banco {
         for(ContaBancaria aux:contas){
             relatorio=aux.mostrarSaldo()+"\n";
         }
- 
+  
         return relatorio;
 
     }
