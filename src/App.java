@@ -21,7 +21,7 @@ public class App {
         str += "0 - Sair\n";
         str += "Digite uma opção:";
 
-        return str;
+        return str; 
     }
 
 
