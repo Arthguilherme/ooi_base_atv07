@@ -12,7 +12,7 @@ public class Pessoa {
         this.cpf = cpf;
         this.idade = idade;
         this.salario = salario;
-         
+          
     }
     
     //getters e setters -----------------------------
